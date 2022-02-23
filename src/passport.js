@@ -29,6 +29,8 @@ passport.use(
   "local-signup",
   new LocalStrategy(
     {
+      usernameField: "username",
+      passwordField: "password",
       passReqToCallback: true,
     },
     (req, username, password, done) => {
@@ -43,6 +45,11 @@ passport.use(
         const newUser = {
           username: username,
           password: bcrypt.hashSync(password, 10),
+          nombre: req.body.nombre,
+          edad: req.body.edad,
+          direccion: req.body.direccion,
+          tel: req.body.tel,
+          avatar: req.file,
         };
 
         userModel.create(newUser, (err, user) => {
@@ -69,9 +76,4 @@ function isValidPassword(user, password) {
   return bcrypt.compareSync(password, user.password);
 }
 
-const auth = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/login");
-};
-
-module.exports = { passport, auth };
+module.exports = { passport };

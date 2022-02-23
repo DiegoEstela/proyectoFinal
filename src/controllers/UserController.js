@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const mongoStore = require("connect-mongo");
 const { passport } = require("../passport");
+const bodyParser = require("body-parser");
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -22,6 +23,8 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const getHome = (req, res) => {
   res.render("home");
