@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('templates/head') %>
+  <body>
+    <%- include('templates/nav') %>
+    <a href="/">login</a>
+    <h1>HOLA BIENVENID@ <% if(user) { %> <%= user %> <% } %></h1>
+    <a class="btn btn-primary" href="/login" role="button">logout</a>
+    <div class="container fondo1">
+      <div class="container my-3">
+        <h2 class="text-center">Carga de productos</h2>
+        <form action="" onsubmit="return addProd()">
+          <div
+            class="form row mt-3 justify-content-center text-center border border-primary"
+          >
+            <div class="col-12 col-md-6">
+              <div class="my-3">
+                <label class="input">Nombre</label>
+                <input type="text" name="nombre" id="nombre" />
+              </div>
+              <div class="my-3">
+                <label class="input">Precio</label>
+                <input type="number" name="precio" id="precio" />
+              </div>
+              <div class="my-3">
+                <label class="input">Link</label>
+                <input type="text" name="thumb" id="thumb" />
+              </div>
+              <input
+                class="btn btn-primary my-3"
+                type="submit"
+                value="Enviar"
+              />
+              <a class="btn btn-warning" role="button" href="/"
+                >Volver al inicio</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      <h2>Lista de productos con Ejs</h2>
+      <% if(check) { %>
+      <h3 class="p-3">No se encontraron productos :(</h3>
+      <% } %>
+      <div className="container">
+        <table className="text-center">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Imagen</th>
+            </tr>
+          </thead>
+          <tbody id="tableProds"></tbody>
+        </table>
+      </div>
+      <a class="btn btn-warning" role="button" href="/profile"
+        >Volver al inicio</a
+      >
+    </div>
+    <div class="container mt-3 fondo2">
+      <h2>Centro de mensajes</h2>
+      <div id="compresion"></div>
+      <form onsubmit="return addMessage(this)">
+        <input
+          type="email"
+          id="email"
+          placeholder="Tu email"
+          name="email"
+          class="d-block"
+        />
+        <input
+          type="text"
+          id="name"
+          placeholder="Tu nombre"
+          name="name"
+          class="d-block mt-2"
+        />
+        <input
+          type="text"
+          id="lastname"
+          placeholder="Tu apellido"
+          name="lastname"
+          class="d-block mt-2"
+        />
+        <input
+          type="text"
+          id="age"
+          placeholder="Tu edad"
+          name="age"
+          class="d-block mt-2"
+        />
+        <input
+          type="text"
+          id="alias"
+          placeholder="Tu alias"
+          name="alias"
+          class="d-block mt-2"
+        />
+        <input
+          type="url"
+          id="avatar"
+          placeholder="Tu avatar"
+          name="avatar"
+          class="d-block mt-2"
+        />
+        <input
+          type="text"
+          id="text"
+          placeholder="Cuéntanos algo..."
+          name="text"
+          class="d-block mt-2"
+        />
+        <input type="submit" value="Enviar" class="mt-2" />
+      </form>
+      <div id="contenedor"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
+    <script src="./index.js"></script>
+    -->
+  </body>
+</html>
