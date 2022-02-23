@@ -10,10 +10,6 @@ const userRoute = require("./routes/userRoute");
 
 app.use("/user", userRoute);
 
-app.get("/", (req, res) => {
-  res.render("products");
-});
-
 const server = app.listen(PORT, () => {
   console.log(
     `Servidor http escuchando en el puerto: ${server.address().port}`
