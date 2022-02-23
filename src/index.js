@@ -16,6 +16,7 @@ app.use(compression());
 
 const userRoute = require("./routes/userRoute");
 const prodRoute = require("./routes/productsRoute");
+const cartRoute = require("./routes/cartRoute");
 
 app.get("/", (req, res) => {
   res.render("home");
