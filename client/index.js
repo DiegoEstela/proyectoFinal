@@ -1,23 +1,12 @@
-const https = require("https");
+const axios = require("axios");
 
-const url = "http://localhost:8081/productos";
+const url = "https://jsonplaceholder.typicode.com/todos/1";
 
-const options = {
-  hostname: "http://localhost:8081",
-  port: 443,
-  path: "/productos",
-  method: "GET",
-};
-
-const request = https.request(options, (response) => {
-  let data = "";
-  response.on("data", (chunk) => {
-    data += chunk.toString();
+axios
+  .get(url)
+  .then((response) => {
+    console.log(response.data);
+  })
+  .catch((error) => {
+    console.log(error);
   });
-
-  response.on("end", () => {
-    console.log(data);
-    const body = JSON.parse(data);
-    console.log(body);
-  });
-});

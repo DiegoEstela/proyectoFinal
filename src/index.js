@@ -31,3 +31,5 @@ const server = app.listen(PORT, () => {
     `Servidor http escuchando en el puerto: ${server.address().port}`
   );
 });
+
+module.exports = app;
