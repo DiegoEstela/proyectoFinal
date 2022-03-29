@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha src/test/testApi.test",
-    "start": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
     "startql": "nodemon ./src/ProductsGraphQl/indexQl.js",
     "req": "node ./client/index.js"
   },
